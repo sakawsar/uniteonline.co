@@ -1,0 +1,56 @@
+<%- include('partials/header'); -%>
+<div class="popup-overlay" id="popupOverlay"></div>
+<div class="popup" id="profileEditPopup">
+  <div class="popup-header">
+    <h1>Edit Profile</h1>
+    <button class="closePopup" id="closeEditProfilePopup">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M37.9688 16.0312L16.0312 37.9688M16.0312 16.0312L37.9688 37.9688" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="popup-content">
+    <form id="editProfileForm" method="POST">
+      <div class="form-row">
+        <div class="form-col form-col-33">
+          <label for="fullName">Full Name</label>
+          <input type="text" name="fullName" id="fullName" value="<%= user.fullName %>" />
+        </div>
+        <div class="form-col form-col-33">
+          <label for="company">Company</label>
+          <input type="text" name="company" id="company" value="<%= user.company %>" />
+        </div>
+        <div class="form-col form-col-33">
+          <label for="positionInCompany">Position In Company</label>
+          <input type="text" name="positionInCompany" id="positionInCompany" value="<%= user.positionInCompany %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-col form-col-50">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" name="phoneNumber" id="phoneNumber" value="<%= user.phone %>" />
+        </div>
+        <div class="form-col form-col-50">
+          <label for="profilePicture">Profile Picture <b>(Max size 10 MB)</b></label>
+          <input type="file" name="profilePicture" id="profilePicture" />
+        </div>
+      </div>
+      <div class="error" id="editFormError"></div>
+      <div class="align-right">
+        <button>SAVE</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/sidebar'); -%>
+  <div class="main">
+    <%- include("partials/secondary_menu") -%>
+    <div class="section">
+      <iframe src="/conversations" frameborder="0" class="page-frame"></iframe>
+    </div>
+    <%- include('partials/footer'); -%>
+  </div>
+</div>
+
+</body>
+</html>

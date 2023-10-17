@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversations / Connections</title>
+    <link rel="stylesheet" href="/styles/chat.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="sidebar">
+        <div class="sidebar-section conversations" id="conversations">
+          <h4>My Connections</h4>
+          <br />
+        </div>
+      </div>
+      <div class="start-text">
+        <h3 style="width: 100%; text-align: center; margin-top: 10px">Select a Conversation</h3>
+      </div>
+      <div class="main">
+        <div class="header">
+          <div class="chat-profile">
+            <div class="chat-pfp">
+              <img src="/images/random_pfp.png" alt="Profile Picture" id="chatPfp"/>
+            </div>
+            <span id="chatCompany"></span>
+            <span style="display: none" id="chatUsername"></span>
+          </div>
+          <div class="contact-buttons">
+            <a href="" class="contact-btn" id="phoneBtn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.375 17.5C3.125 17.5 2.91667 17.4167 2.75 17.25C2.58333 17.0833 2.5 16.875 2.5 16.625V13.25C2.5 13.0556 2.5625 12.8853 2.6875 12.7392C2.8125 12.5936 2.97222 12.5 3.16667 12.4583L6.04167 11.875C6.23611 11.8472 6.43417 11.8644 6.63583 11.9267C6.83694 11.9894 7 12.0833 7.125 12.2083L9.08333 14.1667C10.1389 13.5278 11.1042 12.7708 11.9792 11.8958C12.8542 11.0208 13.5833 10.0833 14.1667 9.08333L12.1667 7.04167C12.0417 6.91667 11.9617 6.77417 11.9267 6.61417C11.8922 6.45472 11.8889 6.27778 11.9167 6.08333L12.4583 3.16667C12.4861 2.97222 12.5764 2.8125 12.7292 2.6875C12.8819 2.5625 13.0556 2.5 13.25 2.5H16.625C16.875 2.5 17.0833 2.58333 17.25 2.75C17.4167 2.91667 17.5 3.125 17.5 3.375C17.5 5.16667 17.1006 6.91306 16.3017 8.61417C15.5033 10.3158 14.4478 11.8228 13.135 13.135C11.8228 14.4478 10.3161 15.5033 8.615 16.3017C6.91333 17.1006 5.16667 17.5 3.375 17.5Z"
+                  fill="#F2F2F2"
+                />
+              </svg>
+            </a>
+            <a href="" class="contact-btn" id="emailBtn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.33329 16.6666C2.87496 16.6666 2.48274 16.5036 2.15663 16.1775C1.82996 15.8508 1.66663 15.4583 1.66663 15V4.99998C1.66663 4.54165 1.82996 4.14942 2.15663 3.82331C2.48274 3.49665 2.87496 3.33331 3.33329 3.33331H16.6666C17.125 3.33331 17.5175 3.49665 17.8441 3.82331C18.1702 4.14942 18.3333 4.54165 18.3333 4.99998V15C18.3333 15.4583 18.1702 15.8508 17.8441 16.1775C17.5175 16.5036 17.125 16.6666 16.6666 16.6666H3.33329ZM9.99996 10.6875C10.0694 10.6875 10.1422 10.6769 10.2183 10.6558C10.295 10.6353 10.368 10.6041 10.4375 10.5625L16.3333 6.87498C16.4444 6.80554 16.5277 6.71887 16.5833 6.61498C16.6388 6.51054 16.6666 6.39581 16.6666 6.27081C16.6666 5.99304 16.5486 5.7847 16.3125 5.64581C16.0763 5.50692 15.8333 5.51387 15.5833 5.66665L9.99996 9.16665L4.41663 5.66665C4.16663 5.51387 3.92357 5.51026 3.68746 5.65581C3.45135 5.80192 3.33329 6.00692 3.33329 6.27081C3.33329 6.4097 3.36107 6.53109 3.41663 6.63498C3.47218 6.73942 3.55551 6.81942 3.66663 6.87498L9.56246 10.5625C9.6319 10.6041 9.70496 10.6353 9.78163 10.6558C9.85774 10.6769 9.93051 10.6875 9.99996 10.6875Z"
+                  fill="#F2F2F2"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="messages" id="messages"></div>
+        <form class="chat-form" id="messageForm">
+          <input
+            type="text"
+            class="message-input"
+            name="message"
+            placeholder="Type a message..."
+            id="message"
+          />
+          <button class="send-btn" id="send">
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.01 21.875L23 12.5L2.01 3.125L2 10.4167L17 12.5L2 14.5833L2.01 21.875Z"
+                fill="#F2F2F2"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div style="display: none" id="myEmail"><%= user.email %></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const searchForm = document.getElementById("searchForm");
+      const messageForm = document.getElementById("messageForm");
+      const messages = document.getElementById("messages");
+      const myEmail = document.getElementById("myEmail").innerText;
+
+      const showMyMessage = (message) => {
+        messages.innerHTML += `
+          <div class="message-right">
+            ${message}
+          </div>
+        `;
+
+        messages.scrollTo(0, messages.scrollHeight);
+      };
+
+      const showTheirMessage = (message) => {
+        messages.innerHTML += `
+          <div class="message-left">
+            ${message}
+          </div>
+        `;
+
+        messages.scrollTo(0, messages.scrollHeight);
+      };
+
+      const initialChatbotMessage = () => {
+        showTheirMessage(`
+          <h3>Hi, I am a bot, I'll help you out before your chat begins.</h3><br /><br />
+
+          <i>Welcome to the chat forum and thank you for signing up:</i><br />
+          You took the first step when you choose to start you own business.  If you don’t have a domain name and business address for your business, please go back <a href="https://bizrendevous.com/get-a-domain-name/" target="_blank">here</a> and do that, before coming here to network with other businesses.<br /><br />This part is the second most significant step in your business journey. Here you will be able to share your business card; get others business cards; share what you do so they can support your business, and get to know what they do so you can buy products and services cheaply to grow your business.  Negotiate through the chat forum when necessary.
+          Finally, if you need to register your business as an LLC, S-Corp, please do so through this link <a href="https://bizrendevous.com/start-your-business/registering-and-setting-up-your-business/" target="_blank">here</a> Our team of experts will hold your hands every step of your business journey.<br /><br /><br />
+
+          <button class="bot-button">Continue</button>
+        `);
+      };
+
+      const newConversationWindow = async (email, company, profilePicture) => {
+        document.querySelector(".start-text").style.display = "none";
+        document.querySelector(".main").style.display = "block";
+        document.querySelector("#messages").innerHTML = "";
+        document.getElementById("chatUsername").innerText = email;
+        document.getElementById("chatCompany").innerText = company;
+        document.getElementById(
+          "chatPfp"
+        ).src = `/get_uploaded?fileLocation=${profilePicture}`;
+        document.getElementById("message").disabled = true;
+        document.getElementById("emailBtn").href = `mailto:${email}`;
+
+        const res = await fetch("/check_conversation", {
+          method: "POST",
+          body: JSON.stringify({
+            email_one: myEmail,
+            email_two: document.getElementById("chatUsername").innerText,
+          }),
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+
+        try {
+          if (data.res === "Nothing found") {
+            initialChatbotMessage();
+          } else {
+            document.getElementById("message").disabled = false;
+
+            for (let i = 0; i < data.length; i++) {
+              const message = data[i];
+
+              if (message.message_from === myEmail) {
+                showMyMessage(message.message);
+              } else if (message.message_to === myEmail) {
+                showTheirMessage(message.message);
+              } else {
+                console.error("Invalid message.");
+              }
+            }
+          }
+        } catch (err) {
+          console.error(err);
+        }
+
+        const botBtns = document.getElementsByClassName("bot-button");
+
+        for (let i = 0; i < botBtns.length; i++) {
+          const btn = botBtns[i];
+
+          btn.onclick = () => {
+            showMyMessage(`${btn.innerText}`);
+
+            showTheirMessage(
+              `Thank you answering my questions, now your conversation with ${email} will go without intervention.`
+            );
+
+            document.getElementById("message").disabled = false;
+
+            for (let x = 0; x < botBtns.length; x++) {
+              const btnToDisable = botBtns[x];
+              btnToDisable.disabled = true;
+            }
+          };
+        }
+      };
+
+      const sendMessage = (message) => {
+        socket.emit("Chat Message Send", {
+          to: document.getElementById("chatUsername").innerText,
+          message: message,
+        });
+      };
+
+      socket.on("Chat Message Receive", (content) => {
+        if (
+          content.from === myEmail &&
+          content.to === document.getElementById("chatUsername").innerText
+        ) {
+          showMyMessage(content.userMessage);
+        } else if (
+          content.to === myEmail &&
+          content.from === document.getElementById("chatUsername").innerText
+        ) {
+          showTheirMessage(content.userMessage);
+        } else {
+          console.error("Invalid values.");
+        }
+      });
+
+      messageForm.onsubmit = (e) => {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+
+        const messageInput = document.getElementById("message");
+
+        const message = messageInput.value;
+
+        if (messageInput.value !== "") {
+          messageInput.value = "";
+          sendMessage(message);
+        }
+      };
+
+      (async () => {
+        let query = "";
+
+        try {
+          const res = await fetch(`/search_conversation?query=${query}`, {
+            method: "GET",
+          });
+          const data = await res.json();
+
+          const conversations = document.getElementById("conversations");
+
+          for (let i = 0; i < data.data.companies.length; i++) {
+            const company = data.data.companies[i];
+
+            if (myEmail == data.data.emails[i]) {
+              // Do nothing...
+            } else {
+              const newConversation = `
+                <div class="conversation" onclick="newConversationWindow('${data.data.emails[i]}', '${company}', '${data.data.profile_pictures[i]}');">
+                  <div class="conversation-pfp">
+                    <img src="/get_uploaded?fileLocation=${data.data.profile_pictures[i]}" alt="Profile Picture" />
+                  </div>
+                  <div class="conversation-detail">
+                    <b>${company}</b>
+                  </div>
+                </div>
+              `;
+
+              conversations.innerHTML += newConversation;
+            }
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      })();
+    </script>
+  </body>
+</html>

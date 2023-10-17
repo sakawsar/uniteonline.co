@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary: #002e6d;
+  --primary-dark: #011c41;
+  --secondary: #bb1919;
+  --black: #222222;
+  --bright-white: #ffffff;
+  --white: #f2f2f2;
+  --gray: #dedede;
+  --primary-gradient: linear-gradient(120deg, #5376a7, #002e6d);
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+a,
+p,
+input,
+label,
+button,
+div,
+footer {
+  font-family: "Quicksand", sans-serif;
+  color: var(--black);
+}
+
+.wrapper {
+  margin-top: 15vh;
+  width: 100%;
+}
+
+.wrapper h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  padding-bottom: 2rem;
+}
+
+.pricing-table {
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col-50 {
+  width: 50%;
+  min-height: 50px;
+}
+
+.col-25 {
+  width: 25%;
+  min-height: 50px;
+  text-align: center;
+}
+
+.pricing-headings {
+  background: var(--primary);
+  padding: 1rem;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.row-first {
+  padding: 1rem;
+}
+
+.row-first .pricing-headings:nth-child(3) {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.row-first .pricing-headings:nth-child(2) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.row-second {
+  border-bottom: 2px solid var(--primary);
+}
+
+.row-second .col-50, .row-second .col-25 {
+  padding: 1rem;
+}
+
+button {
+  margin-top: 30px;
+  border-radius: 36px;
+  background: #002e6d;
+  color: #f2f2f2;
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: block;
+  padding: 10px 16px;
+  margin-left: auto;
+  margin-right: auto;
+}

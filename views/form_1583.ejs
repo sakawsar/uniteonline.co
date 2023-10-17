@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversations / Form 1583</title>
+    <link rel="stylesheet" href="/styles/form_1583.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="info">
+        <div class="info-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 24C18.6 24 24 18.6 24 12C24 5.4 18.6 0 12 0C5.4 0 0 5.4 0 12C0 18.6 5.4 24 12 24ZM12.36 6.348C12.6 6.132 12.888 6 13.2 6C13.524 6 13.8 6.132 14.052 6.348C14.28 6.6 14.4 6.888 14.4 7.2C14.4 7.524 14.28 7.8 14.052 8.052C13.8 8.28 13.524 8.4 13.2 8.4C12.888 8.4 12.6 8.28 12.36 8.052C12.132 7.8 12 7.524 12 7.2C12 6.888 12.132 6.6 12.36 6.348ZM9.36 11.964C9.36 11.964 11.964 9.9 12.912 9.816C13.8 9.744 13.62 10.764 13.536 11.292L13.524 11.364C13.356 12 13.152 12.768 12.948 13.5C12.492 15.168 12.048 16.8 12.156 17.1C12.276 17.508 13.02 16.992 13.56 16.632C13.632 16.584 13.692 16.536 13.752 16.5C13.752 16.5 13.848 16.404 13.944 16.536C13.968 16.572 13.992 16.608 14.016 16.632C14.124 16.8 14.184 16.86 14.04 16.956L13.992 16.98C13.728 17.16 12.6 17.952 12.144 18.24C11.652 18.564 9.768 19.644 10.056 17.544C10.308 16.068 10.644 14.796 10.908 13.8C11.4 12 11.616 11.184 10.512 11.892C10.068 12.156 9.804 12.324 9.648 12.432C9.516 12.528 9.504 12.528 9.42 12.372L9.384 12.3L9.324 12.204C9.24 12.084 9.24 12.072 9.36 11.964Z"
+              fill="#002E6D"
+            />
+          </svg>
+        </div>
+        <div class="info-content">
+          <b
+            >We need you to fill out this form in order to get your virtual
+            mailbox.</b
+          >
+          <br />
+          <br />
+          The government wants to make sure that no one signs up for a virtual
+          mailbox as a method to steal someone else's mail, which is why they
+          need an official form to be notarized and only allow certified
+          companies to handle other people's mail. The form ensures that you,
+          and only authorized parties, can access mail that is addressed to you.
+        </div>
+      </div>
+      <br />
+      <br />
+      <form
+        action="/form_1583"
+        method="POST"
+        id="form"
+        enctype="multipart/form-data"
+      >
+        <div class="header">
+          <div>
+            <h3>United States Postal Service®</h3>
+            <h1>Application for Delivery of Mail Through Agent</h1>
+            <h3>See Privacy Act Statement on Reverse</h3>
+          </div>
+          <div>
+            <b>1. Date:</b>
+            <div id="date"></div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <p>
+          In consideration of delivery of my or our (firm) mail to the agent
+          named below, the addressee and agent agree: (1) the addressee or the
+          agent must not file a change of address order with the Postal Service™
+          upon termination of the agency relationship; (2) the transfer of mail
+          to another address is the responsibility of the addressee and the
+          agent; (3) all mail delivered to the agency under this authorization
+          must be prepaid with new postage when redeposited in the mails; (4)
+          upon request the agent must provide to the Postal Service all
+          addresses to which the agency transfers mail; and (5) when any
+          information required on this form changes or becomes obsolete, the
+          addressee(s) must file a revised application with the Commercial Mail
+          Receiving Agency (CMRA).
+          <br />
+          <br />
+          <b>NOTE:</b> The applicant must execute this form in duplicate in the
+          presence of the agent, his or her authorized employee, or a notary
+          public. The agent provides the original completed signed PS Form 1583
+          to the Postal Service and retains a duplicate completed signed copy at
+          the CMRA business location. The CMRA copy of PS Form PS 1583 must at
+          all times be available for examination by the postmaster (or designee)
+          and the Postal Inspection Service. The addressee and the agent agree
+          to comply with all applicable Postal Service rules and regulations
+          relative to delivery of mail through an agent. Failure to comply will
+          subject the agency to withholding of mail from delivery until
+          corrective action is taken.
+          <br />
+          <br />
+          This application may be subject to verification procedures by the
+          Postal Service to confirm that the applicant resides or conducts
+          business at the home or business address listed in boxes 7 or 10, and
+          that the identification listed in box 8 is valid.
+        </p>
+        <br />
+        <br />
+        <div class="table">
+          <div class="row">
+            <div class="column">
+              2. Name in Which Applicant's Mail Will Be Received for Delivery to
+              Agent. (Complete a separate PS Form 1583 for EACH applicant.
+              Spouses may complete and sign one PS Form 1583. Two items of valid
+              identification apply to each spouse. Include dissimilar
+              information for either spouse in appropriate box.)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="application_name"
+                id="application_name"
+                class="form-control"
+                required
+                value="<%= fullName %>"
+                required
+                readonly
+              />
+            </div>
+            <div class="column">
+              3a. Address to be Used for Delivery (Include PMB or # sign.)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                class="form-control"
+                required
+                value="<%= address + ' #' + mailboxNumber %>"
+                required
+                readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              4. Applicant authorizes delivery to and in care of:
+              <br />
+              <br />
+              <hr />
+              <br />
+              a. Name
+              <br />
+              <br />
+              <input
+                type="text"
+                name="name_of_mail_center"
+                id="name_of_mail_center"
+                class="form-control"
+                value="<% if(mailboxNumber==400){ %>Bizrendevous LLC.<% } else if(mailboxNumber==401) { %>Naomi Shipping and Transport State<% } else if(mailboxNumber==402) { %>Bonny Enterprises: State<% } else if(mailboxNumber==403) { %>Goodluck Postal.<% } %>"
+                required
+              />
+              <br />
+              <br />
+              <hr />
+              <br />
+              b. Address (No., street, apt./ste. no.)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="mail_center_address"
+                id="mail_center_address"
+                class="form-control"
+                value="<%= address %>"
+                required
+              />
+              <br />
+              <br />
+              <hr />
+              <br />
+              <div class="nested-row">
+                <div class="nested-col nested-col-33">
+                  c. City
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="nested-col nested-col-33">
+                  d. State
+                  <br />
+                  <br />
+                  <select
+                    class="form-control"
+                    id="state"
+                    name="state"
+                    style="background: #f2f2f2 !important"
+                  >
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                  </select>
+                </div>
+                <div class="nested-col nested-col-33">
+                  e. Zip Code
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="zipCode"
+                    id="zipCode"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              5. This authorization is extended to include restricted delivery
+              mail for the undersigned(s):
+              <br />
+              <br />
+              <input
+                type="text"
+                name="authorization"
+                id="authorization"
+                class="form-control"
+                required
+                value="Yes"
+                required
+                readonly
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              6. Name of Applicant (As listed on government ID)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="applicant_name"
+                id="applicant_name"
+                class="form-control"
+                value="<%= fullName %>"
+                required
+              />
+            </div>
+            <div class="column">
+              7a. Applicant Home Address (As listed on 2nd ID: No., street,
+              apt./ste. no)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="applicant_address"
+                id="applicant_address"
+                class="form-control"
+                value="<%= companyAddress %>"
+                required
+              />
+              <br />
+              <br />
+              <hr />
+              <br />
+              <div class="nested-row">
+                <div class="nested-col nested-col-33">
+                  7b. City
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="applicant_city"
+                    id="applicant_city"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="nested-col nested-col-33">
+                  7c. State
+                  <br />
+                  <br />
+                  <select
+                    class="form-control"
+                    id="applicant_state"
+                    name="applicant_state"
+                    style="background: #f2f2f2 !important"
+                    required
+                  >
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                  </select>
+                </div>
+                <div class="nested-col nested-col-33">
+                  7d. Zip Code
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="applicant_zipCode"
+                    id="applicant_zipCode"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+              <br />
+              <br />
+              <hr />
+              <br />
+              7e. Applicant Telephone Number (Include area code, must be listed
+              on at least one of the IDs provided, and cannot be a P.O. box)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="applicant_phone"
+                id="applicant_phone"
+                class="form-control"
+                value="<%= phone %>"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              8. Two types of identification are required. One must contain a
+              photograph of the addressee(s). Social Security cards, credit
+              cards, and birth certificates are unacceptable as identification.
+              The agent must write in identifying information. Subject to
+              verification.
+              <br />
+              <br />
+              <input
+                type="text"
+                name="identification_1"
+                id="identification_1"
+                class="form-control"
+                placeholder="ID 1"
+                required
+              />
+              <br />
+              <br />
+              <input
+                type="text"
+                name="identification_2"
+                id="identification_2"
+                class="form-control"
+                placeholder="ID 2 (Driver's License Preferred)"
+                required
+              />
+              <br />
+              <br />
+              Acceptable identification includes: valid driver's license or
+              state non-driver's identification card; armed forces, government,
+              university, or recognized corporate identification card; passport,
+              alien registration card or certificate of naturalization; current
+              lease, mortgage or Deed of Trust; voter or vehicle registration
+              card; or a home or vehicle insurance policy. A photocopy of your
+              identification may be retained by agent for verification.
+            </div>
+            <div class="column">
+              9. Name of Firm or Corporation
+              <br />
+              <br />
+              <input
+                type="text"
+                name="name_of_firm"
+                id="name_of_firm"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              10a. Business Address (No., street, apt./ste. no)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="business_address"
+                id="business_address"
+                class="form-control"
+              />
+              <br />
+              <br />
+              <hr />
+              <br />
+              <div class="nested-row">
+                <div class="nested-col nested-col-33">
+                  10b. City
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="business_city"
+                    id="business_city"
+                    class="form-control"
+                  />
+                </div>
+                <div class="nested-col nested-col-33">
+                  10c. State
+                  <br />
+                  <br />
+                  <select
+                    class="form-control"
+                    id="business_state"
+                    name="business_state"
+                    style="background: #f2f2f2 !important"
+                  >
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                  </select>
+                </div>
+                <div class="nested-col nested-col-33">
+                  10d. Zip Code
+                  <br />
+                  <br />
+                  <input
+                    type="text"
+                    name="business_zipCode"
+                    id="business_zipCode"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <br />
+              <br />
+              <hr />
+              <br />
+              10e. Business Telephone Number (Include area code)
+              <br />
+              <br />
+              <input
+                type="text"
+                name="business_telephone"
+                id="business_telephone"
+                class="form-control"
+              />
+            </div>
+            <div class="column">
+              11. Type of business
+              <br />
+              <br />
+              <input
+                type="text"
+                name="type_of_business"
+                id="type_of_business"
+                value="<%= businessType %>"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column" style="width: 100% !important">
+              12. If applicant is a firm, name each member whose mail is to be
+              delivered. (All names listed must have verifiable identification.
+              A guardian must list the names of minors receiving mail at their
+              delivery address.). Applicant may list minor child(ren) or a
+              spoouse in this field (First and last name required). Please
+              indicate if any name listed is a minor. <b>NOTE: </b> iPostal1
+              will require 2 valid, acceptable IDs from the spouse to be
+              provided which should be uploaded through your iPostal1 account.
+              <br />
+              <br />
+              <input
+                type="text"
+                name="mail_participants"
+                id="mail_participants"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              13. <b>If a CORPORATION</b>, Give Names and Addresses of Its
+              Officers
+              <br />
+              <br />
+              <input
+                type="text"
+                name="names_and_addresses_of_officers"
+                id="names_and_addresses_of_officers"
+                class="form-control"
+              />
+            </div>
+            <div class="column">
+              14. If business name (corporation or trade name) has been
+              registered, give name of county and state, and date of
+              registration.
+              <br />
+              <br />
+              <input
+                type="text"
+                name="regisration_specifics"
+                id="regisration_specifics"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div
+              class="column"
+              style="width: 100% !important; border: none !important"
+            >
+              <b>Warning:</b> The furnishing of false or misleading information
+              on this form or omission of material information may result in
+              criminal sanctions (including fines and imprisonment) and/or civil
+              sanctions (including multiple damages and civil penalties).
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              15. Signature of Agent/Notary Public
+              <br />
+              <br />
+              <input
+                type="file"
+                name="signature_of_agent"
+                id="signature_of_agent"
+                class="form-control"
+                style="background: #f2f2f2 !important"
+              />
+            </div>
+            <div class="column">
+              16. Signature of Applicant (If firm or corporation, application
+              must be signed by officer. Show title.)
+              <br />
+              <br />
+              <input
+                type="file"
+                name="signature_of_applicant"
+                id="signature_of_applicant"
+                class="form-control"
+                style="background: #f2f2f2 !important"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="align-right">
+          <button>FINALIZE</button>
+        </div>
+        <br />
+        <br />
+        <br />
+      </form>
+    </div>
+
+    <script>
+      const date = new Date();
+      const today = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
+
+      document.getElementById("date").textContent = today;
+
+      const form = document.getElementById("form");
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        const name_of_firm = document.getElementById("name_of_firm");
+        const business_address = document.getElementById("business_address");
+        const business_city = document.getElementById("business_city");
+        const business_state = document.getElementById("business_state");
+        const business_zipCode = document.getElementById("business_zipCode");
+        const type_of_business = document.getElementById("type_of_business");
+
+        if (name_of_firm != "") {
+          business_address.required = true;
+          business_city.required = true;
+          business_state.required = true;
+          business_zipCode.required = true;
+          type_of_business.required = true;
+
+          if (
+            business_address.value != "" &&
+            business_city.value != "" &&
+            business_state.value != "" &&
+            business_zipCode.value != "" &&
+            type_of_business.value != ""
+          ) {
+            console.log("hi");
+            form.submit();
+          }
+        } else {
+          business_address.required = false;
+          business_city.required = false;
+          business_state.required = false;
+          business_zipCode.required = false;
+          type_of_business.required = false;
+
+          form.submit();
+        }
+      };
+    </script>
+  </body>
+</html>

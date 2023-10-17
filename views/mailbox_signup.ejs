@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bizrendevous Mailbox / Sign Up</title>
+    <link rel="stylesheet" href="/styles/chosen.min.css" />
+    <link rel="stylesheet" href="/styles/form_pages.css" />
+  </head>
+  <body>
+    <form
+      id="form"
+      method="POST"
+      action="/mailbox_signup"
+      enctype="multipart/form-data"
+    >
+      <h2>Sign Up</h2>
+      <br />
+      <br />
+      <br />
+      <h3>Choose a Location</h3>
+      <br />
+      <div class="form-row">
+        <div class="form-col form-col-20">
+          <label for="region">Region <i class="required">*</i></label>
+          <select name="region" id="region" required>
+            <option value="United States of America">
+              United States of America
+            </option>
+            <option value="Africa">Africa</option>
+            <option value="Asia">Asia</option>
+            <option value="Central America">Central America</option>
+            <option value="Europe">Europe</option>
+            <option value="Middle East">Middle East</option>
+            <option value="Pacific">Pacific</option>
+            <option value="South America">South America</option>
+          </select>
+          <div id="regionError" class="error"></div>
+        </div>
+        <div class="form-col form-col-20">
+          <label for="name">Name <i class="required">*</i></label>
+          <input type="text" name="name" id="name" />
+          <div id="nameError" class="error"></div>
+        </div>
+        <div class="form-col form-col-20">
+          <label for="address">Address <i class="required">*</i></label>
+          <select name="address" id="address">
+            <option value="">Select a Company Address</option>
+            <option
+              value="8190 Barker Cypress Rd Ste 1900 Cypress, TX 77433-2246"
+            >
+              8190 Barker Cypress Rd Ste 1900 Cypress, TX 77433-2246
+            </option>
+            <option
+              value="Naomi Shipping and Transport State: North Dakota Address: 1340 6th Street S. Fargo"
+            >
+              Naomi Shipping and Transport State: North Dakota Address: 1340 6th
+              Street S. Fargo
+            </option>
+            <option
+              value="Bonny Enterprises: State: TX. Address: 6602 Windy River Ln. Katy"
+            >
+              Bonny Enterprises: State: TX. Address: 6602 Windy River Ln. Katy
+            </option>
+            <option
+              value="Goodluck Postal. State FL. Address: 542 NE 112th. St. Miami"
+            >
+              Goodluck Postal. State FL. Address: 542 NE 112th. St. Miami
+            </option>
+          </select>
+          <div id="addressError" class="error"></div>
+        </div>
+        <div class="form-col form-col-20">
+          <label for="zipCode">Zip code <i class="required">*</i></label>
+          <input type="text" name="zipCode" id="zipCode" />
+          <div id="zipCodeError" class="error"></div>
+        </div>
+        <div class="form-col form-col-20">
+          <label for="mailbox_number"
+            >Mailbox Number <i class="required">*</i></label
+          >
+          <input type="text" name="mailboxNumber" id="mailboxNumber" />
+          <div id="mailboxNumberError" class="error"></div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <h3>Customer Info</h3>
+      <br />
+      <label for="email">Email <i class="required">*</i></label>
+      <input type="text" name="email" id="email" />
+      <div id="emailError" class="error"></div>
+      <label for="fullName">Full Name <i class="required">*</i></label>
+      <input type="text" name="fullName" id="fullName" />
+      <div id="fullNameError" class="error"></div>
+      <label for="company">Company <i class="required">*</i></label>
+      <input type="text" name="company" id="company" />
+      <div id="companyError" class="error"></div>
+      <label for="companyAddress">Address <i class="required">*</i></label>
+      <input type="text" name="companyAddress" id="companyAddress" />
+      <div id="companyAddressError" class="error"></div>
+      <label for="city">City <i class="required">*</i></label>
+      <input type="text" name="city" id="city" />
+      <div id="cityError" class="error"></div>
+      <label for="businessType">Business Type <i class="required">*</i></label>
+      <select name="businessType" id="businessType">
+        <option value="1">Example 1</option>
+        <option value="2">Example 2</option>
+        <option value="3">Example 3</option>
+        <option value="4">Example 4</option>
+        <option value="5">Example 5</option>
+      </select>
+      <div id="businessTypeError" class="error"></div>
+      <label for="positionInCompany"
+        >Position In Company <i class="required">*</i></label
+      >
+      <input type="text" name="positionInCompany" id="positionInCompany" />
+      <div id="positionInCompanyError" class="error"></div>
+      <label for="password">Password <i class="required">*</i></label>
+      <input type="password" name="password" id="password" />
+      <div id="passwordError" class="error"></div>
+      <label for="phoneNumber">Phone Number <i class="required">*</i></label>
+      <input type="text" name="phoneNumber" id="phoneNumber" />
+      <div id="phoneNumberError" class="error"></div>
+      <br />
+      <button>SIGN UP</button>
+    </form>
+    <%- include('partials/footer'); -%>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    <script>
+      const form = document.getElementById("form");
+      const regionError = document.getElementById("regionError");
+      const nameError = document.getElementById("nameError");
+      const addressError = document.getElementById("addressError");
+      const zipCodeError = document.getElementById("zipCodeError");
+      const mailboxNumberError = document.getElementById("mailboxNumberError");
+      const emailError = document.getElementById("emailError");
+      const fullNameError = document.getElementById("fullNameError");
+      const companyError = document.getElementById("companyError");
+      const companyAddressError = document.getElementById(
+        "companyAddressError"
+      );
+      const cityError = document.getElementById("cityError");
+      const businessTypeError = document.getElementById("businessTypeError");
+      const positionInCompanyError = document.getElementById(
+        "positionInCompanyError"
+      );
+      const passwordError = document.getElementById("passwordError");
+      const phoneNumberError = document.getElementById("phoneNumberError");
+
+      const address = document.getElementById("address");
+      const mailboxNumber = document.getElementById("mailboxNumber");
+
+      var placeholder = $("option:contains('Select a Language')");
+      placeholder.attr("disabled", true);
+      $("#address").trigger("chosen:updated");
+      $("#address").data("placeholder", "Select a Company Address").chosen();
+
+      $("#address").change(function () {
+        const zipCode = document.getElementById("zipCode");
+
+        if (
+          address.value ==
+          "8190 Barker Cypress Rd Ste 1900 Cypress, TX 77433-2246"
+        ) {
+          mailboxNumber.value = "400";
+          zipCode.value = "77433";
+        } else if (
+          address.value ==
+          "Naomi Shipping and Transport State: North Dakota Address: 1340 6th Street S. Fargo"
+        ) {
+          mailboxNumber.value = "401";
+          zipCode.value = "58103";
+        } else if (
+          address.value ==
+          "Bonny Enterprises: State: TX. Address: 6602 Windy River Ln. Katy"
+        ) {
+          mailboxNumber.value = "402";
+          zipCode.value = "77449";
+        } else if (
+          address.value ==
+          "Goodluck Postal. State FL. Address: 542 NE 112th. St. Miami"
+        ) {
+          mailboxNumber.value = "403";
+          zipCode.value = "33161";
+        } else {
+          mailboxNumber.value = "";
+          zipCode.value = "";
+        }
+      });
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        regionError.textContent = "";
+        nameError.textContent = "";
+        addressError.textContent = "";
+        zipCodeError.textContent = "";
+        mailboxNumberError.textContent = "";
+        emailError.textContent = "";
+        fullNameError.textContent = "";
+        companyError.textContent = "";
+        companyAddressError.textContent = "";
+        cityError.textContent = "";
+        businessTypeError.textContent = "";
+        positionInCompanyError.textContent = "";
+        passwordError.textContent = "";
+        phoneNumberError.textContent = "";
+
+        const region = document.getElementById("region");
+        const name = document.getElementById("name");
+        const zipCode = document.getElementById("zipCode");
+        const email = document.getElementById("email");
+        const fullName = document.getElementById("fullName");
+        const company = document.getElementById("company");
+        const companyAddress = document.getElementById("companyAddress");
+        const city = document.getElementById("city");
+        const businessType = document.getElementById("businessType");
+        const positionInCompany = document.getElementById("positionInCompany");
+        const password = document.getElementById("password");
+        const phoneNumber = document.getElementById("phoneNumber");
+
+        try {
+          const formData = new FormData();
+
+          formData.append("region", region.value);
+          formData.append("name", name.value);
+          formData.append("address", address.value);
+          formData.append("zipCode", zipCode.value);
+          formData.append("email", email.value);
+          formData.append("fullName", fullName.value);
+          formData.append("company", company.value);
+          formData.append("companyAddress", companyAddress.value);
+          formData.append("city", city.value);
+          formData.append("businessType", businessType.value);
+          formData.append("positionInCompany", positionInCompany.value);
+          formData.append("password", password.value);
+          formData.append("phoneNumber", phoneNumber.value);
+          formData.append("mailboxNumber", mailboxNumber.value);
+
+          fetch("/mailbox_signup", {
+            method: "POST",
+            body: new URLSearchParams(formData),
+          }).then(async (response) => {
+            const data = await response.json();
+
+            if (data.errors) {
+              regionError.textContent = data.errors.region;
+              nameError.textContent = data.errors.name;
+              addressError.textContent = data.errors.address;
+              zipCodeError.textContent = data.errors.zipCode;
+              emailError.textContent = data.errors.email;
+              fullNameError.textContent = data.errors.fullName;
+              companyError.textContent = data.errors.company;
+              companyAddressError.textContent = data.errors.companyAddress;
+              cityError.textContent = data.errors.city;
+              businessTypeError.textContent = data.errors.businessType;
+              positionInCompanyError.textContent =
+                data.errors.positionInCompany;
+              passwordError.textContent = data.errors.password;
+              phoneNumberError.textContent = data.errors.phoneNumber;
+              mailboxNumberError.textContent = data.errors.mailboxNumber;
+            }
+
+            if (data.user) {
+              location.assign("/form_1583");
+            }
+          });
+        } catch (err) {
+          console.error(err);
+        }
+      };
+    </script>
+  </body>
+</html>

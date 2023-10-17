@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+:root {
+  --primary: #002e6d;
+  --primary-dark: #011c41;
+  --secondary: #bb1919;
+  --black: #222222;
+  --bright-white: #ffffff;
+  --white: #f2f2f2;
+  --gray: #dedede;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  background: var(--white);
+}
+h1,
+h2,
+h3,
+h4,
+ul,
+li,
+a,
+p,
+input,
+label,
+button,
+div,
+footer {
+  font-family: "Quicksand", sans-serif;
+  color: var(--black);
+}
+#wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: scroll;
+}
+.form {
+  width: 70%;
+  height: 100vh;
+}
+.background {
+  width: 30%;
+  height: 100vh;
+  background: url("/images/affiliate_program.png");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+}
+.form form {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+.form form h1 {
+  font-size: 2.8rem;
+  font-weight: lighter;
+}
+.form form .form-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5vw;
+}
+.form form .form-row .form-col {
+  width: auto;
+}
+.form form .form-row .form-col-100 {
+  width: 100%;
+}
+.form form .form-row .form-col-50 {
+  width: 50%;
+}
+.form form .form-row .form-col-25 {
+  width: 25%;
+}
+.form form label {
+  display: block;
+  margin-bottom: 1vh;
+  font-weight: bold;
+}
+.form form .form-control {
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+button {
+  margin-top: 30px;
+  border-radius: 36px;
+  background: #002e6d;
+  color: #f2f2f2;
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+  display: block;
+  padding: 10px 16px;
+}
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}

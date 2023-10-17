@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connections / Sign Up</title>
+    <link rel="stylesheet" href="/styles/form_pages.css" />
+  </head>
+  <body>
+    <form id="form" method="POST" enctype="multipart/form-data">
+      <h2>Sign Up</h2>
+      <label for="email">Email <i class="required">*</i></label>
+      <input type="text" name="email" id="email" />
+      <div id="emailError" class="error"></div>
+      <label for="fullName">Full Name <i class="required">*</i></label>
+      <input type="text" name="fullName" id="fullName" />
+      <div id="fullNameError" class="error"></div>
+      <label for="company">Company <i class="required">*</i></label>
+      <input type="text" name="company" id="company" />
+      <div id="companyError" class="error"></div>
+      <label for="address">Address <i class="required">*</i></label>
+      <input type="text" name="address" id="address" />
+      <div id="addressError" class="error"></div>
+      <div class="form-row">
+        <div class="form-col form-col-25">
+          <label for="region">Region <i class="required">*</i></label>
+          <select name="region" id="region" required>
+            <option value="Africa">Africa</option>
+            <option value="Asia">Asia</option>
+            <option value="Central America">Central America</option>
+            <option value="Europe">Europe</option>
+            <option value="Middle East">Middle East</option>
+            <option value="North America">North America</option>
+            <option value="Pacific">Pacific</option>
+            <option value="South America">South America</option>
+          </select>
+          <div id="regionError" class="error"></div>
+        </div>
+        <div class="form-col form-col-25">
+          <label for="city">City <i class="required">*</i></label>
+          <input type="text" name="city" id="city" />
+          <div id="cityError" class="error"></div>
+        </div>
+        <div class="form-col form-col-25">
+          <label for="state">State <i class="required">*</i></label>
+          <input type="text" name="state" id="state" />
+          <div id="stateError" class="error"></div>
+        </div>
+        <div class="form-col form-col-25">
+          <label for="zipCode">Zip code <i class="required">*</i></label>
+          <input type="text" name="zipCode" id="zipCode" />
+          <div id="zipCodeError" class="error"></div>
+        </div>
+      </div>
+      <label for="businessType">Business Type <i class="required">*</i></label>
+      <select name="businessType" id="businessType">
+        <option value="1">Example 1</option>
+        <option value="2">Example 2</option>
+        <option value="3">Example 3</option>
+        <option value="4">Example 4</option>
+        <option value="5">Example 5</option>
+      </select>
+      <div id="businessTypeError" class="error"></div>
+      <label for="businessSubType"
+        >Business Sub-Type <i class="required">*</i></label
+      >
+      <select name="businessSubType" id="businessSubType">
+        <option value="1">Example 1</option>
+        <option value="2">Example 2</option>
+        <option value="3">Example 3</option>
+        <option value="4">Example 4</option>
+        <option value="5">Example 5</option>
+      </select>
+      <div id="businessSubTypeError" class="error"></div>
+      <label for="positionInCompany"
+        >Position In Company <i class="required">*</i></label
+      >
+      <input type="text" name="positionInCompany" id="positionInCompany" />
+      <div id="positionInCompanyError" class="error"></div>
+      <label for="password">Password <i class="required">*</i></label>
+      <input type="password" name="password" id="password" />
+      <div id="passwordError" class="error"></div>
+      <label for="phoneNumber">Phone Number <i class="required">*</i></label>
+      <input type="text" name="phoneNumber" id="phoneNumber" />
+      <div id="phoneNumberError" class="error"></div>
+      <label for="profilePicture"
+        >Profile Picture <i class="required">*</i></label
+      >
+      <input type="file" name="image" id="profilePicture" />
+      <b>*Max size 10 MB</b>
+      <br />
+      <button>SIGN UP</button>
+    </form>
+    <%- include('partials/footer'); -%>
+
+    <script>
+      const form = document.getElementById("form");
+      const emailError = document.getElementById("emailError");
+      const fullNameError = document.getElementById("fullNameError");
+      const companyError = document.getElementById("companyError");
+      const positionInCompanyError = document.getElementById(
+        "positionInCompanyError"
+      );
+      const passwordError = document.getElementById("passwordError");
+      const phoneNumberError = document.getElementById("phoneNumberError");
+      const addressError = document.getElementById("addressError");
+      const regionError = document.getElementById("regionError");
+      const cityError = document.getElementById("cityError");
+      const stateError = document.getElementById("stateError");
+      const zipCodeError = document.getElementById("zipCodeError");
+      const businessTypeError = document.getElementById("businessTypeError");
+      const businessSubTypeError = document.getElementById(
+        "businessSubTypeError"
+      );
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        emailError.textContent = "";
+        fullNameError.textContent = "";
+        companyError.textContent = "";
+        positionInCompanyError.textContent = "";
+        passwordError.textContent = "";
+        phoneNumberError.textContent = "";
+        businessTypeError.textContent = "";
+        businessSubTypeError.textContent = "";
+        addressError.textContent = "";
+        regionError.textContent = "";
+        cityError.textContent = "";
+        stateError.textContent = "";
+        zipCodeError.textContent = "";
+        businessTypeError.textContent = "";
+        businessSubTypeError.textContent = "";
+
+        const email = document.getElementById("email");
+        const fullName = document.getElementById("fullName");
+        const company = document.getElementById("company");
+        const positionInCompany = document.getElementById("positionInCompany");
+        const password = document.getElementById("password");
+        const phoneNumber = document.getElementById("phoneNumber");
+        const profilePicture = document.getElementById("profilePicture");
+        const address = document.getElementById("address");
+        const region = document.getElementById("region");
+        const city = document.getElementById("city");
+        const state = document.getElementById("state");
+        const zipCode = document.getElementById("zipCode");
+        const businessType = document.getElementById("businessType");
+        const businessSubType = document.getElementById("businessSubType");
+
+        try {
+          const fileInput = document.getElementById("profilePicture");
+
+          if (fileInput.value != "") {
+            const file = fileInput.files[0];
+            const fileType = file.type;
+            const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+            if (validImageTypes.includes(fileType)) {
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = function () {
+                const formData = new FormData();
+                formData.append("email", email.value);
+                formData.append("fullName", fullName.value);
+                formData.append("company", company.value);
+                formData.append("positionInCompany", positionInCompany.value);
+                formData.append("password", password.value);
+                formData.append("phoneNumber", phoneNumber.value);
+                formData.append("image", fileInput.files[0], file.name);
+                formData.append("address", address.value);
+                formData.append("region", region.value);
+                formData.append("city", city.value);
+                formData.append("state", state.value);
+                formData.append("zipCode", zipCode.value);
+                formData.append("businessType", businessType.value);
+                formData.append("businessSubType", businessSubType.value);
+
+                fetch("/signup", {
+                  method: "POST",
+                  body: formData,
+                }).then(async (response) => {
+                  const data = await response.json();
+
+                  if (data.errors) {
+                    emailError.textContent = data.errors.email;
+                    fullNameError.textContent = data.errors.fullName;
+                    companyError.textContent = data.errors.company;
+                    positionInCompanyError.textContent =
+                      data.errors.positionInCompany;
+                    passwordError.textContent = data.errors.password;
+                    phoneNumberError.textContent = data.errors.phone;
+                    addressError.textContent = data.errors.address;
+                    regionError.textContent = data.errors.region;
+                    cityError.textContent = data.errors.city;
+                    stateError.textContent = data.errors.state;
+                    zipCodeError.textContent = data.errors.zipCode;
+                    businessTypeError.textContent = data.errors.businessType;
+                    businessSubTypeError.textContent =
+                      data.errors.businessSubType;
+                  }
+
+                  if (data.user) {
+                    location.assign("/dashboard");
+                  }
+                });
+              };
+            } else {
+              alert("Please choose a PNG, JPEG, or GIF file.");
+              fileInput.value = "";
+            }
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      };
+    </script>
+  </body>
+</html>

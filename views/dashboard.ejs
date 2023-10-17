@@ -1,0 +1,307 @@
+<%- include('partials/header'); -%>
+<div class="popup-overlay" id="popupOverlay"></div>
+<div class="popup" id="profileEditPopup">
+  <div class="popup-header">
+    <h1>Edit Profile</h1>
+    <button class="closePopup" id="closeEditProfilePopup">
+      <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M37.9688 16.0312L16.0312 37.9688M16.0312 16.0312L37.9688 37.9688" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="popup-content">
+    <form id="editProfileForm" method="POST">
+      <div class="form-row">
+        <div class="form-col form-col-33">
+          <label for="fullName">Full Name</label>
+          <input type="text" name="fullName" id="fullName" value="<%= user.fullName %>" />
+        </div>
+        <div class="form-col form-col-33">
+          <label for="company">Company</label>
+          <input type="text" name="company" id="company" value="<%= user.company %>" />
+        </div>
+        <div class="form-col form-col-33">
+          <label for="positionInCompany">Position In Company</label>
+          <input type="text" name="positionInCompany" id="positionInCompany" value="<%= user.positionInCompany %>" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-col form-col-50">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" name="phoneNumber" id="phoneNumber" value="<%= user.phone %>" />
+        </div>
+        <div class="form-col form-col-50">
+          <label for="profilePicture">Profile Picture <b>(Max size 10 MB)</b></label>
+          <input type="file" name="profilePicture" id="profilePicture" />
+        </div>
+      </div>
+      <div class="error" id="editFormError"></div>
+      <div class="align-right">
+        <button>SAVE</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/sidebar'); -%>
+  <div class="main">
+    <%- include("partials/secondary_menu") -%>
+    <div class="section">
+      <div class="section-row">
+        <div class="section-col col-50">
+          <span class="section-heading">Profile</span>
+          <div class="section-card profile-card">
+            <div class="profile-card-header">
+              <div class="profile-card-info-container">
+                <img src="/get_uploaded?fileLocation=<%= user.profilePicture %>" alt="Profile Picture" class="profile-card-pfp" />
+                <div class="profile-card-info">
+                  <b><%= user.fullName %></b>
+                  <br />
+                  <span style="display: block; margin-top: 0.7vw;"><%= user.positionInCompany %>, <%= user.company %></span>
+                </div>
+              </div>
+              <button class="edit-profile" id="editProfileBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3043 2.75 17.863 2.75C18.4217 2.75 18.8923 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.571 21.275 6.113C21.2917 6.655 21.1083 7.11733 20.725 7.5L19.3 8.925ZM17.85 10.4L7.25 21H3V16.75L13.6 6.15L17.85 10.4Z" fill="#777777"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <br />
+          <div class="section-card dashboard-main-options-card">
+            <span class="section-heading">My Chatbot</span>
+            <div class="section-row dashboard-main-options-row">
+              <div class="section-col col-33 dashboard-main-options-col">
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32.7188 28.4625L41.25 13.7063V39.375H3.75V5.625H7.5V29.1375L17.8125 11.25L30 18.3375L37.95 4.59375L41.1937 6.46875L31.3875 23.4375L19.1812 16.4063L8.08125 35.625H12.3188L20.55 21.45L32.7188 28.4625Z" fill="#002E6D"/>
+                </svg>
+                <br />
+                <span>Statistics</span>
+              </div>
+              <div class="section-col col-33 dashboard-main-options-col">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.8333 5.5C16.9216 5.5 11.3483 10.9083 11 17.71L7.47997 22.3483C7.03997 22.9167 7.47997 23.8333 8.24997 23.8333H11V29.3333C11 31.3683 12.6316 33 14.6666 33H16.5V38.5H29.3333V29.9017C33.6783 27.8483 36.6666 23.4667 36.6666 18.3333C36.6666 11.2567 30.9466 5.5 23.8333 5.5ZM25.6666 25.6667H22V22H25.6666V25.6667ZM28.875 16.1517C28.3433 16.885 27.665 17.4167 26.84 17.8567C26.3816 18.15 26.07 18.4617 25.905 18.81C25.74 19.14 25.6666 19.5983 25.6666 20.1667H22C22 19.25 22.2016 18.48 22.5683 18.0033C22.9166 17.5083 23.5583 16.9583 24.4933 16.335C24.97 16.0417 25.355 15.675 25.6116 15.2533C25.905 14.8317 26.0333 14.3367 26.0333 13.75C26.0333 13.2 25.8866 12.7233 25.5566 12.375C25.2266 12.045 24.75 11.8617 24.1816 11.8617C23.7407 11.8521 23.3111 12.0018 22.9716 12.2833C22.6416 12.5767 22.4766 12.9983 22.4583 13.5483H18.92L18.9016 13.4933C18.8833 12.045 19.36 11 20.3133 10.2483C21.3033 9.53333 22.5866 9.16667 24.1816 9.16667C25.8866 9.16667 27.225 9.58833 28.1966 10.4133C29.1866 11.2383 29.6816 12.3567 29.6816 13.75C29.6816 14.6667 29.4066 15.4183 28.875 16.1517Z" fill="#002E6D"/>
+                </svg>
+                <br />
+                <span>Questionnaire</span>
+              </div>
+              <div class="section-col col-33 dashboard-main-options-col">
+                <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.2605 33.9166L13.6438 28.9833C13.3098 28.8548 12.9948 28.7006 12.6988 28.5208C12.4028 28.3409 12.114 28.1482 11.8324 27.9426L7.24593 29.8697L3.00635 22.5468L6.97614 19.5405C6.95044 19.3607 6.9376 19.187 6.9376 19.0195V17.9804C6.9376 17.8128 6.95044 17.6392 6.97614 17.4593L3.00635 14.453L7.24593 7.13013L11.8324 9.05721C12.115 8.85166 12.4105 8.65895 12.7188 8.47909C13.0272 8.29922 13.3355 8.14506 13.6438 8.01659L14.2605 3.08325H22.7397L23.3563 8.01659C23.6904 8.14506 24.0054 8.29922 24.3014 8.47909C24.5974 8.65895 24.8862 8.85166 25.1678 9.05721L29.7543 7.13013L33.9938 14.453L30.0241 17.4593C30.0497 17.6392 30.0626 17.8128 30.0626 17.9804V19.0195C30.0626 19.187 30.0369 19.3607 29.9855 19.5405L33.9553 22.5468L29.7157 29.8697L25.1678 27.9426C24.8852 28.1482 24.5897 28.3409 24.2813 28.5208C23.973 28.7006 23.6647 28.8548 23.3563 28.9833L22.7397 33.9166H14.2605ZM18.5772 23.8958C20.0675 23.8958 21.3393 23.369 22.3928 22.3155C23.4463 21.2621 23.973 19.9902 23.973 18.4999C23.973 17.0096 23.4463 15.7378 22.3928 14.6843C21.3393 13.6308 20.0675 13.1041 18.5772 13.1041C17.0612 13.1041 15.7827 13.6308 14.7415 14.6843C13.7004 15.7378 13.1803 17.0096 13.1813 18.4999C13.1813 19.9902 13.7014 21.2621 14.7415 22.3155C15.7816 23.369 17.0602 23.8958 18.5772 23.8958Z" fill="#002E6D"/>
+                </svg>
+                <br />
+                <span>Settings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-col col-50">
+          <span class="section-heading">Chat</span>
+          <div class="section-card chat-card">
+            <div class="card-heading-flex">
+              <b>Conversations</b>
+              <a href="/chat">View All</a>
+            </div>
+            <br />
+            <div class="conversations-box" id="conversationsBox"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer'); -%>
+  </div>
+</div>
+
+<div style="display: none" id="myEmail"><%= user.email %></div>
+<script src="/js/popups.js"></script>
+<script>
+  const editProfileBtn = document.getElementById("editProfileBtn");
+  const closeEditProfilePopup = document.getElementById("closeEditProfilePopup");
+  const editFormError = document.getElementById("editFormError");
+  const myEmail = document.getElementById("myEmail").textContent;
+
+  editProfileBtn.onclick = () => {
+    togglePopup("profileEditPopup");
+  }
+
+  closeEditProfilePopup.onclick = () => {
+    togglePopup("profileEditPopup");
+  }
+
+  const editProfileForm = document.getElementById("editProfileForm");
+
+  editProfileForm.onsubmit = (e) => {
+    e.preventDefault();
+    editFormError.textContent = "";
+
+    try {
+      const fileInput = document.getElementById("profilePicture");
+      const fullName = document.getElementById("fullName");
+      const company = document.getElementById("company");
+      const positionInCompany = document.getElementById("positionInCompany");
+      const phoneNumber = document.getElementById("phoneNumber");
+
+      if (fileInput.value != "") {
+        const file = fileInput.files[0];
+        const fileType = file.type;
+        const validImageTypes = ["image/png", "image/jpeg", "image/gif"];
+        if (validImageTypes.includes(fileType)) {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = function () {
+            const formData = new FormData();
+
+            formData.append("fullName", fullName.value);
+            formData.append("company", company.value);
+            formData.append("positionInCompany", positionInCompany.value);
+            formData.append("phoneNumber", phoneNumber.value);
+            formData.append("image", fileInput.files[0], file.name);
+
+            fetch("/update_profile_with_pfp", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => {
+                return response.json();
+              }).then((data) => {
+                const res = data;
+
+                if (res.error) {
+                  let errorMessage = "";
+
+                  if (res.error.message.includes("Please enter your full name")) {
+                    errorMessage += "Please enter your full name. ";
+                  }
+                  if (res.error.message.includes("Full name too long. The maximum length is 90 characters")) {
+                    errorMessage += "Full name too long. The maximum length is 90 characters. ";
+                  }
+                  if (res.error.message.includes("Please enter your company's name")) {
+                    errorMessage += "Please enter your company's name. ";
+                  }
+                  if (res.error.message.includes("Company name too long. The maximum length is 90 characters.")) {
+                    errorMessage += "Company name too long. The maximum length is 90 characters. ";
+                  }
+                  if (res.error.message.includes("Please enter your position in the company.")) {
+                    errorMessage += "Please enter your position in the company. ";
+                  }
+                  if (res.error.message.includes("Company Position too long. The maximum length is 20 characters.")) {
+                    errorMessage += "Company Position too long. The maximum length is 20 characters. ";
+                  }
+                  if (res.error.message.includes("Phone number too long. The maximum length is 15")) {
+                    errorMessage += "Phone number too long. The maximum length is 15. ";
+                  }
+                  if (res.error.message.includes("File name too long.")) {
+                    errorMessage += "File name too long. ";
+                  }
+
+                  editFormError.textContent = errorMessage;
+                }
+
+                if (res.success) {
+                  alert(res.success);
+                  location.assign("/");
+                }
+              })
+          };
+        } else {
+          alert("Please choose a PNG, JPEG, or GIF file.");
+          fileInput.value = "";
+        }
+      } else {
+        const formData = new FormData();
+
+        formData.append("fullName", fullName.value);
+        formData.append("company", company.value);
+        formData.append("positionInCompany", positionInCompany.value);
+        formData.append("phoneNumber", phoneNumber.value);
+
+        fetch("/update_profile_without_pfp", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            return response.json();
+          }).then((data) => {
+            const res = data;
+
+            if (res.error) {
+              let errorMessage = "";
+
+              if (res.error.message.includes("Please enter your full name")) {
+                errorMessage += "Please enter your full name. ";
+              }
+              if (res.error.message.includes("Full name too long. The maximum length is 90 characters")) {
+                errorMessage += "Full name too long. The maximum length is 90 characters. ";
+              }
+              if (res.error.message.includes("Please enter your company's name")) {
+                errorMessage += "Please enter your company's name. ";
+              }
+              if (res.error.message.includes("Company name too long. The maximum length is 90 characters.")) {
+                errorMessage += "Company name too long. The maximum length is 90 characters. ";
+              }
+              if (res.error.message.includes("Please enter your position in the company.")) {
+                errorMessage += "Please enter your position in the company. ";
+              }
+              if (res.error.message.includes("Company Position too long. The maximum length is 20 characters.")) {
+                errorMessage += "Company Position too long. The maximum length is 20 characters. ";
+              }
+              if (res.error.message.includes("Phone number too long. The maximum length is 15")) {
+                errorMessage += "Phone number too long. The maximum length is 15. ";
+              }
+              if (res.error.message.includes("File name too long.")) {
+                errorMessage += "File name too long. ";
+              }
+
+              editFormError.textContent = errorMessage;
+            }
+
+            if (res.success) {
+              alert(res.success);
+              location.assign("/");
+            }
+          })
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  const conversationsBox = document.getElementById("conversationsBox");
+
+  const redirectToChat = () => {
+    location.assign("/chat")
+  }
+
+  (async () => {
+    let query = "";
+
+    try {
+      const res = await fetch(`/search_conversation?query=${query}`, {
+        method: "GET",
+      });
+      const data = await res.json();
+
+      for (let i = 0; i < 6; i++) {
+        const company = data.data.companies[i];
+
+        if (company) {
+          if (myEmail == data.data.emails[i]) {
+            // Do nothing...
+          } else {
+            const newConversation = `
+              <div class="conversation" onclick="redirectToChat();">
+                <img src="/get_uploaded?fileLocation=${data.data.profile_pictures[i]}" alt="${data.data.companies[i]}" />
+                <span>${data.data.companies[i]}</span>
+              </div>
+            `;
+
+            conversationsBox.innerHTML += newConversation;
+          }
+        }
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+</script>
+</body>
+</html>

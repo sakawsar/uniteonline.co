@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connections / Affiliate Form</title>
+    <link
+      rel="stylesheet"
+      href="/styles/affiliate_program.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="form">
+        <form action="/affiliate_form" method="POST">
+          <h1>Affiliate Program</h1>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="company">Company</label>
+              <input
+                type="text"
+                name="company"
+                id="company"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-50">
+              <label for="first_name">First Name</label>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-col form-col-50">
+              <label for="last_name">Last Name</label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="address">Address</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-25">
+              <label for="country">Country</label>
+              <input
+                type="text"
+                name="country"
+                id="country"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-col form-col-25">
+              <label for="state">State</label>
+              <input
+                type="text"
+                name="state"
+                id="state"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-col form-col-25">
+              <label for="city">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-col form-col-25">
+              <label for="zip_code">Zip Code</label>
+              <input
+                type="text"
+                name="zip_code"
+                id="zip_code"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="phone_number">Phone Number</label>
+              <input
+                type="phone"
+                name="phone_number"
+                id="phone_number"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="industry">Industry</label>
+              <select
+                name="industry"
+                id="industry"
+                class="form-control"
+                required
+              >
+                <option value="">Select</option>
+                <option value="Mail & Parcel Center">
+                  Mail & Parcel Center
+                </option>
+                <option value="Serviced Business Center/Cowork">
+                  Serviced Business Center/Cowork
+                </option>
+                <option value="University/College">University/College</option>
+                <option value="Coorporate Mailroom">Coorporate Mailroom</option>
+                <option value="Apartment/Residential Complex">
+                  Apartment/Residential Complex
+                </option>
+                <option value="Assisted Living">Assisted Living</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="affiliate_type">Affiliate Type</label>
+              <select
+                name="affiliate_type"
+                id="affiliate_type"
+                class="form-control"
+                required
+              >
+                <option value="All">All</option>
+                <option value="Business Registration">Business Registration</option>
+                <option value="B2B / B2C Chat">B2B / B2C Chat</option>
+                <option value="Digital Mailbox">Digital Mailbox</option>
+                <option value="Domain Reseller">Domain Reseller</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="source_of_visit">How did you hear about us?</label>
+              <input
+                type="text"
+                name="source_of_visit"
+                id="source_of_visit"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="form-row">
+            <div class="form-col form-col-100">
+              <label for="promocode">Promo code (Optional)</label>
+              <input
+                type="text"
+                name="promocode"
+                id="promocode"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <br />
+          <br />
+          <input
+            type="checkbox"
+            name="terms_and_conditions"
+            id="terms_and_conditions"
+            required
+          />
+          <label for="terms_and_conditions" style="display: inline"
+            >I accept the
+            <a href="#" target="_blank">Terms & Conditions</a></label
+          >
+          <br />
+          <br />
+          <div class="align-right">
+            <button>SUBMIT</button>
+          </div>
+        </form>
+      </div>
+      <div class="background"></div>
+    </div>
+  </body>
+</html>
