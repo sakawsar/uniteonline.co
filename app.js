@@ -20,6 +20,7 @@ const nodemailer = require("nodemailer");
 const PDFDocument = require("pdfkit");
 
 let mode = "development";
+// let mode = "production";
 let port = 3000;
 let server = null;
 let app = null;
@@ -40,14 +41,17 @@ if (mode === "production") {
 
   const https_options = {
     key: fs.readFileSync(
-      "/etc/pki/tls/private/connections.bizrendevous.com.key"
+      "/home/uniteonlineco/conf/web/uniteonline.co/ssl/uniteonline.co.key"
+      // "/etc/pki/tls/private/connections.bizrendevous.com.key"
     ),
     cert: fs.readFileSync(
-      "/etc/pki/tls/certs/connections.bizrendevous.com.cert"
+      "/home/uniteonlineco/conf/web/uniteonline.co/ssl/uniteonline.co.crt"
+      // "/etc/pki/tls/certs/connections.bizrendevous.com.cert"
     ),
     ca: [
-      fs.readFileSync("/etc/pki/tls/certs/ca-bundle.crt"),
-      fs.readFileSync("/etc/pki/tls/certs/connections.bizrendevous.com.bundle"),
+      fs.readFileSync("/home/uniteonlineco/conf/web/uniteonline.co/ssl/uniteonline.co.pem")
+      // fs.readFileSync("/etc/pki/tls/certs/ca-bundle.crt"),
+      // fs.readFileSync("/etc/pki/tls/certs/connections.bizrendevous.com.bundle"),
     ],
   };
 
@@ -68,7 +72,8 @@ app.use(cookieParser());
 
 app.set("view engine", "ejs");
 
-const dbURI = "mongodb://0.0.0.0:27017/connections";
+const dbURI = "mongodb://127.0.0.1:27017/connections";
+// const dbURI = "mongodb://0.0.0.0:27017/connections";
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
@@ -76,8 +81,14 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then((result) => server.listen(port))
-  .catch((err) => console.error(err));
+  .then((result) => {
+    console.log('successfully connected to the db',result)
+    server.listen(port)
+  })
+  .catch((err) => {
+    console.log('error connecting to db',err)
+    console.error(err)
+  });
 
 app.get("*", checkUser);
 app.get("/", (req, res) => res.render("home"));
